@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
     if (wrapper.className.indexOf('skewed') != -1) skew = 1000;
     
     wrapper.addEventListener(inputType, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         touchPath = isMobile == true ? e.changedTouches[0].clientX : e.clientX;
         delta = (touchPath - window.innerWidth / 2) * 0.5;
         handle.style.left = touchPath + delta + 'px';
